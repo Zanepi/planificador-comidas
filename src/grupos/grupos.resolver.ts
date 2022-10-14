@@ -1,4 +1,5 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { ObjectID } from 'typeorm';
 import { CrearGrupo } from './dto/crear-grupo.dto';
 import { Grupos } from './Grupos.entity';
 import { GruposService } from './Grupos.service';
@@ -8,9 +9,15 @@ export class GruposResolver {
     constructor(private GruposService: GruposService){}
 
     @Query(returns => [Grupos])
-    grupo(): Promise<Grupos[]>{
+    grupos(): Promise<Grupos[]>{
         return this.GruposService.buscarTodos();
     }
+
+    @Query(returns => Grupos)
+    grupo(@Args('id',{type: () => String}) id :string): Promise<Grupos>{
+        return this.GruposService.buscar(id);
+    }
+
 
     @Mutation(returns => Grupos)
     crear(@Args('crearGrupo') crearGrupo: CrearGrupo): Promise<Grupos>{

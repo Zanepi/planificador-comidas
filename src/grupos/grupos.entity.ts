@@ -1,13 +1,13 @@
 import { Field, ObjectType } from "@nestjs/graphql";
-import { Column, Entity, ObjectIdColumn } from "typeorm";
+import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm";
 
 @Entity()
 @ObjectType()
 export class Grupos{
 
     @ObjectIdColumn()
-    @Field()
-    id: string;
+    @Field(type => String)
+    _id: ObjectID;
 
 
     @Column()

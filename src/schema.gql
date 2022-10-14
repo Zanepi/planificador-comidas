@@ -3,13 +3,14 @@
 # ------------------------------------------------------
 
 type Grupos {
-  id: String!
+  _id: String!
   nombre: String!
   img: String
 }
 
 type Query {
-  grupo: [Grupos!]!
+  grupos: [Grupos!]!
+  grupo(id: String!): Grupos!
 }
 
 type Mutation {
