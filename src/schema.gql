@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Grupos {
+  id: String!
+  nombre: String!
+  img: String
+}
+
+type Query {
+  grupo: [Grupos!]!
+}
+
+type Mutation {
+  crear(crearGrupo: CrearGrupo!): Grupos!
+}
+
+input CrearGrupo {
+  nombre: String!
+  img: String
+}
