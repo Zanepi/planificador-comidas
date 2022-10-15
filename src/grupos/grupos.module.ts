@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Grupos } from './Grupos.entity';
-import { GruposResolver } from './Grupos.resolver';
-import { GruposService } from './Grupos.service';
+import { Alimento } from '../alimento/entities/alimento.entity';
+import { Grupos } from './grupos.entity';
+import { GruposResolver } from './grupos.resolver';
+import { GruposService } from './grupos.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Grupos])]
-  ,exports: [TypeOrmModule]
+  ,exports: [TypeOrmModule, GruposService]
   ,providers: [GruposService ,GruposResolver]
 })
 export class GruposModule {}

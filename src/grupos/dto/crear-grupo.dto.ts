@@ -10,4 +10,7 @@ export class CrearGrupo{
 
     @Field({ nullable: true })
     img?: string;
+
+
+    
 }

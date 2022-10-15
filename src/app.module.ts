@@ -7,6 +7,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AlimentoModule } from './alimento/alimento.module';
+import {Grupos, Alimento} from './app.entitites'
 
 @Module({
   imports: [
@@ -20,9 +22,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       port: 27017, 
       database: 'planificador-comidas', 
       synchronize: true,    
-      entities: ['dist/**/*.entity{.ts,.js}']
+      entities: [Grupos, Alimento]// 'dist/**/*.entity{.ts,.js}']
    })
-    , GruposModule],
+    , GruposModule, AlimentoModule],
   controllers: [AppController ],
   providers: [
         GruposService,  AppService],

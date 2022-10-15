@@ -2,22 +2,55 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Alimento {
+  id: String!
+  nombre: String!
+  img: String
+  grupoID: String!
+  grupo: Grupos!
+  calorias: Float!
+  porcion: Float!
+}
+
 type Grupos {
   _id: String!
   nombre: String!
   img: String
+  alimentos: [Alimento!]
 }
 
 type Query {
   grupos: [Grupos!]!
   grupo(id: String!): Grupos!
+  alimentos: [Alimento!]!
+  alimento(id: String!): Alimento!
 }
 
 type Mutation {
   crear(crearGrupo: CrearGrupo!): Grupos!
+  createAlimento(createAlimentoInput: CreateAlimentoInput!): Alimento!
+  updateAlimento(updateAlimentoInput: UpdateAlimentoInput!): Alimento!
+  removeAlimento(id: Int!): Alimento!
 }
 
 input CrearGrupo {
   nombre: String!
   img: String
+}
+
+input CreateAlimentoInput {
+  nombre: String!
+  img: String
+  grupoID: String!
+  calorias: Float!
+  porcion: Float!
+}
+
+input UpdateAlimentoInput {
+  nombre: String
+  img: String
+  grupoID: String
+  calorias: Float
+  porcion: Float
+  id: Int!
 }

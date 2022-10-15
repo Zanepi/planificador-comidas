@@ -1,8 +1,7 @@
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { ObjectID } from 'typeorm';
 import { CrearGrupo } from './dto/crear-grupo.dto';
-import { Grupos } from './Grupos.entity';
-import { GruposService } from './Grupos.service';
+import { Grupos } from './grupos.entity';
+import { GruposService } from './grupos.service';
 
 @Resolver(of => Grupos)
 export class GruposResolver {

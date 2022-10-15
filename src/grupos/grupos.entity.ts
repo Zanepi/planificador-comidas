@@ -1,5 +1,6 @@
 import { Field, ObjectType } from "@nestjs/graphql";
-import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm";
+import { Alimento } from "../alimento/entities/alimento.entity";
+import { Column, Entity, ObjectID, ObjectIdColumn, OneToMany } from "typeorm";
 
 @Entity()
 @ObjectType()
@@ -17,5 +18,9 @@ export class Grupos{
     @Column({ nullable : true })
     @Field({ nullable : true })
     img?: string;
+
+    @OneToMany(() => Alimento, alimento => alimento.grupo)
+    @Field(type => [Alimento], { nullable: true })
+    alimentos?: Alimento[];
 
 }
