@@ -8,7 +8,7 @@ import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AlimentoModule } from './alimento/alimento.module';
-import {Grupo, Alimento} from './app.entitites'
+import { ormconfig } from './config/ormconfig';
 
 @Module({
   imports: [
@@ -16,16 +16,9 @@ import {Grupo, Alimento} from './app.entitites'
       driver: ApolloDriver
       ,autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     })
-    ,TypeOrmModule.forRoot({ 
-      type: 'mongodb', 
-      host: 'localhost', 
-      port: 27017, 
-      database: 'planificador-comidas', 
-      synchronize: true,    
-      entities: [Grupo, Alimento]// 'dist/**/*.entity{.ts,.js}']
-   })
+    ,TypeOrmModule.forRoot(ormconfig)
     , GrupoModule, AlimentoModule],
   controllers: [AppController ],
-  providers: [GrupoService,  AppService],
+  providers: [AppService],
 })
 export class AppModule {}

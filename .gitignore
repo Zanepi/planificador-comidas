@@ -6,6 +6,12 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+#Config
+config/
+
+#Graphql
+src/schema.gql
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
@@ -103,5 +109,5 @@ dist
 # TernJS port file
 .tern-port
 
-#VSCode extra Confid
+#VSCode extra Confi
 .prettierrc

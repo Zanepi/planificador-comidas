@@ -3,7 +3,7 @@ import { AlimentoService } from './alimento.service';
 import { Alimento } from './entities/alimento.entity';
 import { CreateAlimentoInput } from './dto/create-alimento.input';
 import { UpdateAlimentoInput } from './dto/update-alimento.input';
-import { Grupo } from '../app.entitites';
+import { Grupo } from '../app.entities';
 
 @Resolver((of) => Alimento)
 export class AlimentoResolver {

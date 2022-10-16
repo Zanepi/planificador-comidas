@@ -7,12 +7,12 @@ type Alimento {
   nombre: String!
   img: String
   grupoID: String!
-  grupo: Grupos!
+  grupo: Grupo!
   calorias: Float!
   porcion: Float!
 }
 
-type Grupos {
+type Grupo {
   _id: String!
   nombre: String!
   img: String
@@ -20,14 +20,14 @@ type Grupos {
 }
 
 type Query {
-  grupos: [Grupos!]!
-  grupo(id: String!): Grupos!
+  grupos: [Grupo!]!
+  grupo(id: String!): Grupo!
   alimentos: [Alimento!]!
   alimento(id: String!): Alimento!
 }
 
 type Mutation {
-  crear(crearGrupo: CrearGrupo!): Grupos!
+  crear(crearGrupo: CrearGrupo!): Grupo!
   createAlimento(createAlimentoInput: CreateAlimentoInput!): Alimento!
   updateAlimento(updateAlimentoInput: UpdateAlimentoInput!): Alimento!
   removeAlimento(id: Int!): Alimento!

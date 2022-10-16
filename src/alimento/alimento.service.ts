@@ -6,7 +6,7 @@ import { CreateAlimentoInput } from './dto/create-alimento.input';
 import { UpdateAlimentoInput } from './dto/update-alimento.input';
 import { Alimento } from './entities/alimento.entity';
 import { GrupoService } from '../grupo/grupo.service';
-import { Grupo } from '../app.entitites';
+import { Grupo } from '../app.entities';
 
 @Injectable()
 export class AlimentoService {
