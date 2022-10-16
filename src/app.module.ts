@@ -1,14 +1,14 @@
-import { GruposService } from './grupos/grupos.service';
+import { GrupoService } from './grupo/grupo.service';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { GruposModule } from './grupos/grupos.module';
+import { GruposModule } from './grupo/grupo.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AlimentoModule } from './alimento/alimento.module';
-import {Grupos, Alimento} from './app.entitites'
+import {Grupo, Alimento} from './app.entitites'
 
 @Module({
   imports: [
@@ -22,11 +22,10 @@ import {Grupos, Alimento} from './app.entitites'
       port: 27017, 
       database: 'planificador-comidas', 
       synchronize: true,    
-      entities: [Grupos, Alimento]// 'dist/**/*.entity{.ts,.js}']
+      entities: [Grupo, Alimento]// 'dist/**/*.entity{.ts,.js}']
    })
     , GruposModule, AlimentoModule],
   controllers: [AppController ],
-  providers: [
-        GruposService,  AppService],
+  providers: [GrupoService,  AppService],
 })
 export class AppModule {}

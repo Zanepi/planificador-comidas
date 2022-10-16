@@ -1,8 +1,8 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Grupos } from 'src/grupos/grupos.entity';
-import { Column, Entity, ManyToMany, ManyToOne, ObjectID, ObjectIdColumn } from 'typeorm';
+import { Grupo } from 'src/grupo/grupo.entity';
+import { Column, Entity, ManyToOne, ObjectID, ObjectIdColumn } from 'typeorm';
 
-@Entity()
+@Entity({name: "alimentos"})
 @ObjectType()
 export class Alimento {
   
@@ -23,9 +23,9 @@ export class Alimento {
   @Field(type => String)
   grupoID: string;
 
-  @ManyToOne(() => Grupos, grupo => grupo.alimentos)
-  @Field(type => Grupos)
-  grupo: Grupos
+  @ManyToOne(() => Grupo, grupo => grupo.alimentos)
+  @Field(type => Grupo)
+  grupo: Grupo
 
   @Field()
   @Column()

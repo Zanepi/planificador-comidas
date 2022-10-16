@@ -5,7 +5,7 @@ import { ObjectId } from 'mongodb'
 import { CreateAlimentoInput } from './dto/create-alimento.input';
 import { UpdateAlimentoInput } from './dto/update-alimento.input';
 import { Alimento } from './entities/alimento.entity';
-import { GruposService } from '../grupos/grupos.service';
+import { GruposService } from '../grupo/grupo.service';
 import { Grupos } from '../app.entitites';
 
 @Injectable()

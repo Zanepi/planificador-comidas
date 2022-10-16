@@ -2,9 +2,9 @@ import { Field, ObjectType } from "@nestjs/graphql";
 import { Alimento } from "../alimento/entities/alimento.entity";
 import { Column, Entity, ObjectID, ObjectIdColumn, OneToMany } from "typeorm";
 
-@Entity()
+@Entity({name: "grupos"})
 @ObjectType()
-export class Grupos{
+export class Grupo{
 
     @ObjectIdColumn()
     @Field(type => String)

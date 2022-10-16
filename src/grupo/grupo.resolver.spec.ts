@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { GruposResolver } from './grupos.resolver';
+import { GrupoResolver } from './grupo.resolver';
 
-describe('GruposResolver', () => {
-  let resolver: GruposResolver;
+describe('GrupoResolver', () => {
+  let resolver: GrupoResolver;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [GruposResolver],
+      providers: [GrupoResolver],
     }).compile();
 
-    resolver = module.get<GruposResolver>(GruposResolver);
+    resolver = module.get<GrupoResolver>(GrupoResolver);
   });
 
   it('should be defined', () => {

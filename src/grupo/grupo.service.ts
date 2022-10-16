@@ -6,19 +6,19 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository, Repository } from 'typeorm';
 import { ObjectID } from 'mongodb'
-import { CrearGrupo } from './dto/crear-grupo.dto';
-import { Grupos } from './grupos.entity';
+import { CrearGrupo } from './dto/crear-grupo.input';
+import { Grupo } from './grupo.entity';
 
 @Injectable()
-export class GruposService {
-    constructor(@InjectRepository(Grupos) private gruposRepository: MongoRepository<Grupos>) { }
+export class GrupoService {
+    constructor(@InjectRepository(Grupo) private gruposRepository: MongoRepository<Grupo>) { }
 
-    async buscarTodos(): Promise<Grupos[]> {
+    async buscarTodos(): Promise<Grupo[]> {
 
         return this.gruposRepository.find();
     }
 
-    async buscar(id: string): Promise<Grupos>{
+    async buscar(id: string): Promise<Grupo>{
         return this.gruposRepository.findOneOrFail({
             where: {
                 _id : new ObjectID(id)
@@ -27,7 +27,7 @@ export class GruposService {
     }
     
 
-    async crear(crearGrupo: CrearGrupo): Promise<Grupos> {
+    async crear(crearGrupo: CrearGrupo): Promise<Grupo> {
 
         const nuevoGrupo = this.gruposRepository.create(crearGrupo);
 

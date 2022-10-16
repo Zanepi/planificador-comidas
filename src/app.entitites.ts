@@ -1,4 +1,4 @@
-import {Grupos} from './grupos/grupos.entity';
+import {Grupo} from './grupo/grupo.entity';
 import {Alimento} from './alimento/entities/alimento.entity'
 
-export {Grupos, Alimento}
+export {Grupo, Alimento}
