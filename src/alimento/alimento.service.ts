@@ -5,12 +5,12 @@ import { ObjectId } from 'mongodb'
 import { CreateAlimentoInput } from './dto/create-alimento.input';
 import { UpdateAlimentoInput } from './dto/update-alimento.input';
 import { Alimento } from './entities/alimento.entity';
-import { GruposService } from '../grupo/grupo.service';
-import { Grupos } from '../app.entitites';
+import { GrupoService } from '../grupo/grupo.service';
+import { Grupo } from '../app.entitites';
 
 @Injectable()
 export class AlimentoService {
-  constructor(@InjectRepository(Alimento) private alimentoRepository: MongoRepository<Alimento>, private gruposService: GruposService){}
+  constructor(@InjectRepository(Alimento) private alimentoRepository: MongoRepository<Alimento>, private grupoService: GrupoService){}
 
   create(createAlimentoInput: CreateAlimentoInput) {
     const newAlimento = this.alimentoRepository.create(createAlimentoInput);
@@ -30,8 +30,8 @@ export class AlimentoService {
     })
   }
 
-  getGrupo(grupoID : string): Promise<Grupos>{
-    return this.gruposService.buscar(grupoID);
+  getGrupo(grupoID : string): Promise<Grupo>{
+    return this.grupoService.buscar(grupoID);
   }
 
   update(id: number, updateAlimentoInput: UpdateAlimentoInput) {

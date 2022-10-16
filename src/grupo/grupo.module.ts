@@ -10,4 +10,4 @@ import { GrupoService } from './grupo.service';
   ,exports: [TypeOrmModule, GrupoService]
   ,providers: [GrupoService ,GrupoResolver]
 })
-export class GruposModule {}
+export class GrupoModule {}

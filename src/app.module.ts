@@ -2,7 +2,7 @@ import { GrupoService } from './grupo/grupo.service';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { GruposModule } from './grupo/grupo.module';
+import { GrupoModule } from './grupo/grupo.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -24,7 +24,7 @@ import {Grupo, Alimento} from './app.entitites'
       synchronize: true,    
       entities: [Grupo, Alimento]// 'dist/**/*.entity{.ts,.js}']
    })
-    , GruposModule, AlimentoModule],
+    , GrupoModule, AlimentoModule],
   controllers: [AppController ],
   providers: [GrupoService,  AppService],
 })

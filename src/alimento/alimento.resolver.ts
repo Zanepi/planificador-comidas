@@ -3,7 +3,7 @@ import { AlimentoService } from './alimento.service';
 import { Alimento } from './entities/alimento.entity';
 import { CreateAlimentoInput } from './dto/create-alimento.input';
 import { UpdateAlimentoInput } from './dto/update-alimento.input';
-import { Grupos } from 'src/app.entitites';
+import { Grupo } from '../app.entitites';
 
 @Resolver((of) => Alimento)
 export class AlimentoResolver {
@@ -24,8 +24,8 @@ export class AlimentoResolver {
     return this.alimentoService.findOne(id);
   }
 
-  @ResolveField(returns => Grupos)
-  grupo(@Parent() alimento: Alimento): Promise<Grupos>{
+  @ResolveField(returns => Grupo)
+  grupo(@Parent() alimento: Alimento): Promise<Grupo>{
     return this.alimentoService.getGrupo(alimento.grupoID);
   }
 
