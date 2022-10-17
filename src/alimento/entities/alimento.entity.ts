@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Grupo } from 'src/grupo/grupo.entity';
+import { Grupo } from '../../grupo/grupo.entity';
 import { Column, Entity, ManyToOne, ObjectID, ObjectIdColumn } from 'typeorm';
 
 @Entity({name: "alimentos"})
@@ -16,7 +16,7 @@ export class Alimento {
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  img: string;
+  img?: string;
 
 
   @Column()

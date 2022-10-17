@@ -18,7 +18,7 @@ export class GrupoResolver {
     }
 
 
-    @Mutation(returns => Grupo)
+    @Mutation(returns => Grupo,{name : 'createGrupo'})
     crear(@Args('crearGrupo') crearGrupo: CrearGrupo): Promise<Grupo>{
         return this.GrupoService.crear(crearGrupo);
     }

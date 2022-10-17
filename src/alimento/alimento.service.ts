@@ -30,6 +30,14 @@ export class AlimentoService {
     })
   }
 
+  findAllById(alimentoIDs: string[]){
+    return this.alimentoRepository.findBy({
+      where: {
+        _id: { $in : alimentoIDs.map(a => new ObjectId(a))}
+      }
+    });
+  }
+
   getGrupo(grupoID : string): Promise<Grupo>{
     return this.grupoService.buscar(grupoID);
   }

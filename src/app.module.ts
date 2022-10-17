@@ -1,4 +1,3 @@
-import { GrupoService } from './grupo/grupo.service';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -9,6 +8,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AlimentoModule } from './alimento/alimento.module';
 import { ormconfig } from './config/ormconfig';
+import { PlatilloModule } from './platillo/platillo.module';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import { ormconfig } from './config/ormconfig';
       ,autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     })
     ,TypeOrmModule.forRoot(ormconfig)
-    , GrupoModule, AlimentoModule],
+    , GrupoModule, AlimentoModule, PlatilloModule],
   controllers: [AppController ],
   providers: [AppService],
 })
